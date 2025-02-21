@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>【每日阅读】Grounding DINO_ Marrying DINO with Grounded Pre-Training for Open-Set Object Detection | Hexo</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="文献阅读" />
+    
+    <meta name="description" content="1.Abstract&amp;Info1.1 AbstractIn this paper, we present an open-set object detector, called Grounding DINO, by marrying Transformer-based detector DINO with grounded pre-training, which can detect ar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【每日阅读】Grounding DINO_ Marrying DINO with Grounded Pre-Training for Open-Set Object Detection">
+<meta property="og:url" content="http://example.com/2025/02/21/%E3%80%90%E6%AF%8F%E6%97%A5%E9%98%85%E8%AF%BB%E3%80%91Grounding%20DINO/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.Abstract&amp;Info1.1 AbstractIn this paper, we present an open-set object detector, called Grounding DINO, by marrying Transformer-based detector DINO with grounded pre-training, which can detect ar">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/asset/GroundingDINO.png">
+<meta property="article:published_time" content="2025-02-20T19:17:11.000Z">
+<meta property="article:modified_time" content="2025-02-21T03:31:34.365Z">
+<meta property="article:author" content="Spectrum Cat">
+<meta property="article:tag" content="文献阅读">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/asset/GroundingDINO.png">
+    
+
+    
+        <link rel="alternate" href="/" title="Hexo" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                    
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    未分类
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-【每日阅读】Grounding DINO" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        【每日阅读】Grounding DINO_ Marrying DINO with Grounded Pre-Training for Open-Set Object Detection
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2025/02/21/%E3%80%90%E6%AF%8F%E6%97%A5%E9%98%85%E8%AF%BB%E3%80%91Grounding%20DINO/" class="article-date">
+       <time datetime="2025-02-20T19:17:11.000Z" itemprop="datePublished">2025-02-21</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2025/02/21/%E3%80%90%E6%AF%8F%E6%97%A5%E9%98%85%E8%AF%BB%E3%80%91Grounding%20DINO/" class="article-date">
+     <time datetime="2025-02-21T03:31:34.365Z" itemprop="dateModified">2025-02-21</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" rel="tag">文献阅读</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h2 id="1-Abstract-Info"><a href="#1-Abstract-Info" class="headerlink" title="1.Abstract&amp;Info"></a>1.Abstract&amp;Info</h2><h3 id="1-1-Abstract"><a href="#1-1-Abstract" class="headerlink" title="1.1 Abstract"></a>1.1 Abstract</h3><p>In this paper, we present an open-set object detector, called Grounding DINO, by marrying Transformer-based detector DINO with grounded pre-training, which can detect arbitrary objects with human inputs such as category names or referring expressions. The key solution of open-set object detection is introducing language to a closed-set detector for open-set concept generalization. To effectively fuse language and vision modalities, we conceptually divide a closed-set detector into three phases and propose a tight fusion solution, which includes a feature enhancer, a language-guided query selection, and a cross-modality decoder for cross-modality fusion. While previous works mainly evaluate open-set object detection on novel categories, we propose to also perform evaluations on referring expression comprehension for objects specified with attributes. Grounding DINO performs remarkably well on all three settings, including benchmarks on COCO, LVIS, ODinW, and RefCOCO&#x2F;+&#x2F;g. Grounding DINO achieves a $52.5$ AP on the COCO detection zero-shot transfer benchmark, i.e., without any training data from COCO. It sets a new record on the ODinW zero-shot benchmark with a mean $26.1$ AP. Code will be available at \url{<a target="_blank" rel="noopener" href="https://github.com/IDEA-Research/GroundingDINO%7D">https://github.com/IDEA-Research/GroundingDINO}</a>.</p>
+<h3 id="1-2-Info"><a href="#1-2-Info" class="headerlink" title="1.2 Info"></a>1.2 Info</h3><p>Authors: Shilong Liu, Zhaoyang Zeng, Tianhe Ren, Feng Li, Hao Zhang, Jie Yang, Qing Jiang, Chunyuan Li, Jianwei Yang, Hang Su, Jun Zhu, Lei Zhang<br>DOI: 10.48550&#x2F;ARXIV.2303.05499<br>Publication:<br>Data: 2023-01-01</p>
+<h2 id="2-Annotation"><a href="#2-Annotation" class="headerlink" title="2. Annotation"></a>2. Annotation</h2><p>%% begin annotations %%</p>
+<p><img src="/../asset/GroundingDINO.png" alt="Framework"></p>
+<h3 id="Imported-2025-02-17-1-02-下午"><a href="#Imported-2025-02-17-1-02-下午" class="headerlink" title="Imported: 2025-02-17 1:02 下午"></a>Imported: 2025-02-17 1:02 下午</h3><p>原文：[Feature fusion can be performed in three phases: neck (phase A), query initialization (phase B), and head (phase C). For example, GLIP [25] performs early fusion in the neck module (phase A), and OV-DETR [55] uses language-aware queries as head inputs (phase B). We argue that introducing more feature fusion into the pipeline can facilitate better alignment between different modality features, thereby achieving better performance.]<br>标注：文章认为在三个部分可以加入语义信息，越多地方加就越好</p>
+<p>原文：[Although conceptually simple, it is hard for previous work to perform feature fusion in all three phases.]<br>标注：同时在三个部分加入比较困难</p>
+<p>原文：[Unlike classical detectors, the Transformer-based detector method such as DINO has a consistent structure with language blocks.]<br>标注：相比基于CNN的方法，基于DETR的方法更好，因为其结构与语言模型相似</p>
+<p>原文：[Most existing open-set models [14, 21] rely on pre-trained CLIP models for concept generalization]<br>标注：第一种方法，基于CLIP做概念泛化</p>
+<p>原文：[GLIP [25] presents a different way by reformulating object detection as a phrase grounding task and introducing contrastive training between object regions and language phrases on large-scale data.]<br>标注：第二种，将目标检测视为描述grounding任务，在物体区域和描述之间建立联系</p>
+<p>原文：[GLIP’s approach involves concatenating all categories into a sentence in a random order. However, the direct category names concatenation does not consider the potential influence of unrelated categories on each other when extracting features.]<br>标注：GLIP方法的缺点</p>
+<p>原文：[To mitigate this issue and improve model performance during grounded training, we introduce a technique that utilizes sub-sentence level text features.]<br>标注：子句级别的语义特征</p>
+<p>原文：[]<br>标注：三个子设置：闭集目标检测，开集目标检测和提示目标检测</p>
+<p>原文：[]<br>标注：</p>
+<p>原文：[INq &#x3D; TopNq (Max(−1)(XI X⊺  T )). (1)]<br>标注：被选取的图像特征</p>
+<p>原文：[Each cross-modality query is fed into a self-attention layer, an image cross-attention layer to combine image features, a text crossattention layer to combine text features, and an FFN layer in each cross-modality decoder layer.]<br>标注：跨模态解码器，对query进行处理，注入文本信息</p>
+<p>原文：[Table 2: Zero-shot domain transfer and fine-tuning on COCO. *]<br>标注：zeroshot COCO结果</p>
+<p>原文：[It eliminates the influence between different category names while keeping per-word features for fine-grained understanding.]<br>标注：移除了不必要的类别名间影响</p>
+<p>原文：[]<br>标注：闭集：COCO</p>
+<p>原文：[]<br>标注：开集：zero-shot COCO, LVIS, ODinW</p>
+<p>原文：[]<br>标注：提示目标检测：RefCOCO&#x2F;+&#x2F;g</p>
+<p>原文：[Using BERT as our text encoder,]<br>标注：文本编码器：BERT</p>
+<p>原文：[Table 3: Model results on LVIS.]<br>标注：LVIS结果</p>
+<p>原文：[Table 4: Model results on the ODinW benchmark.]<br>标注：ODinW结果</p>
+<p>%% end annotations %%</p>
+<p>%% Import Date: 2025-02-17T13:19:36.595+08:00 %%</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://example.com/2025/02/21/%E3%80%90%E6%AF%8F%E6%97%A5%E9%98%85%E8%AF%BB%E3%80%91Grounding%20DINO/" data-id="cm7e7cyxx000094nm2g3l4iko" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Spectrum Cat"
+        },
+        "headline": "【每日阅读】Grounding DINO_ Marrying DINO with Grounded Pre-Training for Open-Set Object Detection",
+        "image": "http://example.com/../asset/GroundingDINO.png",
+        "keywords": "文献阅读",
+        "genre": "",
+        "datePublished": "2025-02-21",
+        "dateCreated": "2025-02-21",
+        "dateModified": "2025-02-21",
+        "url": "http://example.com/2025/02/21/【每日阅读】Grounding DINO/",
+        "description": "1.Abstract&amp;Info1.1 AbstractIn this paper, we present an open-set object detector, called Grounding DINO, by marrying Transformer-based detector DINO with grounded pre-training, which can detect ar",
+        "wordCount": 520
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/02/21/%E3%80%90%E6%AF%8F%E6%97%A5%E9%98%85%E8%AF%BB%E3%80%91Grounding%20DINO/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/../asset/GroundingDINO.png)" alt="【每日阅读】Grounding DINO_ Marrying DINO with Grounded Pre-Training for Open-Set Object Detection" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2025/02/21/%E3%80%90%E6%AF%8F%E6%97%A5%E9%98%85%E8%AF%BB%E3%80%91Grounding%20DINO/" class="title">【每日阅读】Grounding DINO_ Marrying DINO with Grounded Pre-Training for Open-Set Object Detection</a></p>
+                            <p class="item-date"><time datetime="2025-02-20T19:17:11.000Z" itemprop="datePublished">2025-02-21</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" rel="tag">文献阅读</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 10px;">文献阅读</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2025 Spectrum Cat</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
