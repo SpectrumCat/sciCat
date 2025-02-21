@@ -6,23 +6,26 @@
     
 
     
-    <title>【每日阅读】Yolo-World | SciCat</title>
+    <title>【每日阅读】YOLO-World_ Real-Time Open-Vocabulary Object Detection | SciCat</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="" />
+    <meta name="keywords" content="文献阅读" />
     
     <meta name="description" content="1.Abstract&amp;Info1.1 AbstractThe You Only Look Once (YOLO) series of detectors have established themselves as efficient and practical tools. However, their reliance on predefined and trained object">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【每日阅读】Yolo-World">
+<meta property="og:title" content="【每日阅读】YOLO-World_ Real-Time Open-Vocabulary Object Detection">
 <meta property="og:url" content="http://example.com/2025/02/21/%E3%80%90%E6%AF%8F%E6%97%A5%E9%98%85%E8%AF%BB%E3%80%91Yolo-World/index.html">
 <meta property="og:site_name" content="SciCat">
 <meta property="og:description" content="1.Abstract&amp;Info1.1 AbstractThe You Only Look Once (YOLO) series of detectors have established themselves as efficient and practical tools. However, their reliance on predefined and trained object">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/asset/YoloWorld.png">
 <meta property="article:published_time" content="2025-02-21T00:25:14.000Z">
-<meta property="article:modified_time" content="2025-02-21T08:25:45.628Z">
+<meta property="article:modified_time" content="2025-02-21T08:29:29.761Z">
 <meta property="article:author" content="Spectrum Cat">
+<meta property="article:tag" content="文献阅读">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/asset/YoloWorld.png">
     
 
     
@@ -163,7 +166,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-        【每日阅读】Yolo-World
+        【每日阅读】YOLO-World_ Real-Time Open-Vocabulary Object Detection
         </h1>
     
 
@@ -183,7 +186,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2025/02/21/%E3%80%90%E6%AF%8F%E6%97%A5%E9%98%85%E8%AF%BB%E3%80%91Yolo-World/" class="article-date">
-     <time datetime="2025-02-21T08:25:45.628Z" itemprop="dateModified">2025-02-21</time>
+     <time datetime="2025-02-21T08:29:29.761Z" itemprop="dateModified">2025-02-21</time>
   </a>
 </div>
 
@@ -191,6 +194,11 @@
                 
 
                 
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" rel="tag">文献阅读</a>
+    </div>
+
                 
 
                 
@@ -208,10 +216,12 @@
             <h2 id="1-Abstract-Info"><a href="#1-Abstract-Info" class="headerlink" title="1.Abstract&amp;Info"></a>1.Abstract&amp;Info</h2><h3 id="1-1-Abstract"><a href="#1-1-Abstract" class="headerlink" title="1.1 Abstract"></a>1.1 Abstract</h3><p>The You Only Look Once (YOLO) series of detectors have established themselves as efficient and practical tools. However, their reliance on predefined and trained object categories limits their applicability in open scenarios. Addressing this limitation, we introduce YOLO-World, an innovative approach that enhances YOLO with open-vocabulary detection capabilities through vision-language modeling and pre-training on large-scale datasets. Specifically, we propose a new Re-parameterizable Vision-Language Path Aggregation Network (RepVL-PAN) and region-text contrastive loss to facilitate the interaction between visual and linguistic information. Our method excels in detecting a wide range of objects in a zero-shot manner with high efficiency. On the challenging LVIS dataset, YOLO-World achieves 35.4 AP with 52.0 FPS on V100, which outperforms many state-of-the-art methods in terms of both accuracy and speed. Furthermore, the fine-tuned YOLO-World achieves remarkable performance on several downstream tasks, including object detection and open-vocabulary instance segmentation.</p>
 <h3 id="1-2-Info"><a href="#1-2-Info" class="headerlink" title="1.2 Info"></a>1.2 Info</h3><p>Authors: Tianheng Cheng, Lin Song, Yixiao Ge, Wenyu Liu, Xinggang Wang, Ying Shan<br>DOI: 10.48550&#x2F;arXiv.2401.17270<br>Publication:<br>Data: 2024-02-22</p>
 <h2 id="2-Annotation"><a href="#2-Annotation" class="headerlink" title="2. Annotation"></a>2. Annotation</h2><p>%% begin annotations %%</p>
+<p><img src="/../asset/YoloWorld.png" alt="Framework"></p>
 <h3 id="Imported-2025-02-21-4-24-下午"><a href="#Imported-2025-02-21-4-24-下午" class="headerlink" title="Imported: 2025-02-21 4:24 下午"></a>Imported: 2025-02-21 4:24 下午</h3><p>原文：[Re-parameterizable VisionLanguage Path Aggregation Network]<br>标注：核心</p>
 <p>原文：[for high-efficiency open-vocabulary object detection]<br>标注：重点在高效</p>
 <p>原文：[YOLO-World follows the standard YOLO architecture [20] and leverages the pre-trained CLIP [39] text encoder to encode the input texts.]<br>标注：使用CLIP作为文本信息的提供方</p>
 <p>原文：[During inference, the text encoder can be removed and the text embeddings can be re-parameterized into weights of RepVL-PAN for efficient deployment.]<br>标注：训练时将文本信息转入RepVL-PAN，运行时不再依赖CLIP</p>
+<p><img src="/../asset/YoloWorld_RepVL-PAN.png" alt="RepVL-PAN"></p>
 <p>原文：[the prompt-thendetect paradigm (Fig. 2 (c)) first encodes the prompts of a user to build an offline vocabulary and the vocabulary varies with different needs.]<br>标注：首先将输入的文本转化为提示，同一词汇在不同场景下产生的提示可能不同</p>
 <p>原文：[which consists of a YOLO detector, a Text Encoder, and a Re-parameterizable Vision-Language Path Aggregation Network (RepVL-PAN).]<br>标注：YoloWorld的三个部分</p>
 <p>原文：[YOLO Detector. YOLO-World is mainly developed based on YOLOv8 [20], which contains a Darknet backbone [20, 43] as the image encoder, a path aggregation network (PAN) for multi-scale feature pyramids, and a head for bounding box regression and object embeddings.]<br>标注：Yolo检测器构成</p>
@@ -305,16 +315,16 @@
             "@type": "Person",
             "name": "Spectrum Cat"
         },
-        "headline": "【每日阅读】Yolo-World",
-        "image": "http://example.com",
-        "keywords": "",
+        "headline": "【每日阅读】YOLO-World_ Real-Time Open-Vocabulary Object Detection",
+        "image": "http://example.com/../asset/YoloWorld.png",
+        "keywords": "文献阅读",
         "genre": "",
         "datePublished": "2025-02-21",
         "dateCreated": "2025-02-21",
         "dateModified": "2025-02-21",
         "url": "http://example.com/2025/02/21/【每日阅读】Yolo-World/",
         "description": "1.Abstract&amp;Info1.1 AbstractThe You Only Look Once (YOLO) series of detectors have established themselves as efficient and practical tools. However, their reliance on predefined and trained object ",
-        "wordCount": 506
+        "wordCount": 510
     }
 </script>
 
@@ -384,7 +394,7 @@
                             <a href="/2025/02/21/%E3%80%90%E6%AF%8F%E6%97%A5%E9%98%85%E8%AF%BB%E3%80%91Yolo-World/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/../asset/YoloWorld.png)" alt="【每日阅读】YOLO-World_ Real-Time Open-Vocabulary Object Detection" class="thumbnail-image"></span>
     
     
 </a>
@@ -393,7 +403,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2025/02/21/%E3%80%90%E6%AF%8F%E6%97%A5%E9%98%85%E8%AF%BB%E3%80%91Yolo-World/" class="title">【每日阅读】Yolo-World</a></p>
+                            <p class="item-title"><a href="/2025/02/21/%E3%80%90%E6%AF%8F%E6%97%A5%E9%98%85%E8%AF%BB%E3%80%91Yolo-World/" class="title">【每日阅读】YOLO-World_ Real-Time Open-Vocabulary Object Detection</a></p>
                             <p class="item-date"><time datetime="2025-02-21T00:25:14.000Z" itemprop="datePublished">2025-02-21</time></p>
                         </div>
                     </li>
@@ -440,7 +450,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" rel="tag">文献阅读</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" rel="tag">文献阅读</a><span class="tag-list-count">2</span></li></ul>
         </div>
     </div>
 
